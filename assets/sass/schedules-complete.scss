@@ -1,0 +1,24 @@
+#schedules-complete {
+  main {
+    flex-direction: column;
+    padding: var(--space);
+    header {
+      margin: 0;
+    }
+    p {
+      small {
+        display: block;
+      }
+    }
+    footer {
+      justify-content: center;
+      a {
+        @include button-green;
+        min-width: 200px;
+      }
+      @media (min-width: 992px) {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

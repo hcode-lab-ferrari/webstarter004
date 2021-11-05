@@ -171,7 +171,9 @@ form .field label {
   transition: color 0.3s ease-in-out;
   z-index: 2;
 }
-form .field input, form .field textarea, form .field select {
+form .field input,
+form .field textarea,
+form .field select {
   border: var(--gray-3) 1px solid;
   line-height: 1.5em;
   padding: 10px;
@@ -187,13 +189,19 @@ form .field input, form .field textarea, form .field select {
   width: 100%;
   background-color: transparent;
 }
-form .field input:focus, form .field textarea:focus, form .field select:focus {
+form .field input:focus,
+form .field textarea:focus,
+form .field select:focus {
   border-color: var(--green);
 }
-form .field input:focus + label, form .field textarea:focus + label, form .field select:focus + label {
+form .field input:focus + label,
+form .field textarea:focus + label,
+form .field select:focus + label {
   color: var(--green);
 }
-form .field input[readonly], form .field textarea[readonly], form .field select[readonly] {
+form .field input[readonly],
+form .field textarea[readonly],
+form .field select[readonly] {
   border: none;
   color: var(--black);
   font-weight: bold;
@@ -201,7 +209,9 @@ form .field input[readonly], form .field textarea[readonly], form .field select[
   text-transform: uppercase;
   padding-bottom: 0;
 }
-form .field input[readonly] + label, form .field textarea[readonly] + label, form .field select[readonly] + label {
+form .field input[readonly] + label,
+form .field textarea[readonly] + label,
+form .field select[readonly] + label {
   color: var(--gray-0);
   text-transform: uppercase;
 }
@@ -239,7 +249,7 @@ form button:active {
 
 @media (min-width: 1200px) {
   form {
-    max-width: 400px;
+    max-width: 450px;
   }
   form .fields {
     flex-direction: row;
@@ -303,6 +313,10 @@ header.page-title hr {
   font-size: 23px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.page > header small {
+  display: block;
+  font-size: 14px;
 }
 .page > main {
   margin-bottom: 80px;
@@ -1750,14 +1764,12 @@ header.page-title hr {
 .with-aside > main .options {
   width: 100%;
 }
-.with-aside > main > form {
-  width: 0;
-}
 
 #aside-services {
   flex-direction: column;
   background-color: var(--gray-12);
   position: fixed;
+  z-index: 2;
   bottom: 80px;
   width: 100%;
   height: 50px;
@@ -1878,6 +1890,167 @@ header.page-title hr {
   }
   #aside-services footer > div .total {
     font-size: 29px;
+  }
+}
+#schedules-payment {
+  position: relative;
+}
+#schedules-payment.keyboard-open {
+  margin-bottom: 0;
+  height: calc(100vh - 60px);
+}
+#schedules-payment.keyboard-open main form {
+  max-width: 100%;
+}
+#schedules-payment.keyboard-open footer {
+  position: static;
+  width: 100vw;
+  margin-left: -20px;
+}
+#schedules-payment .name {
+  text-transform: uppercase;
+}
+#schedules-payment .name.back {
+  text-transform: capitalize;
+}
+#schedules-payment > header {
+  height: 260px;
+  min-height: 260px;
+}
+#schedules-payment > header h1 {
+  display: none;
+}
+#schedules-payment main form {
+  width: 100%;
+}
+#schedules-payment main form .form-creditcard {
+  margin-top: var(--space);
+}
+#schedules-payment main form .form-creditcard .form-fields {
+  flex-direction: column;
+  width: 100%;
+}
+#schedules-payment main form .form-creditcard .form-fields .fields {
+  flex-direction: row;
+  justify-content: space-between;
+}
+#schedules-payment main form .form-creditcard .form-fields .fields .field {
+  width: calc(50% - var(--space) / 2);
+}
+#schedules-payment main form .form-creditcard .form-card {
+  perspective: 1000px;
+  position: absolute;
+  width: 100%;
+  top: 32px;
+  left: 0;
+  justify-content: center;
+}
+#schedules-payment main form .form-creditcard .form-card .faces {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  width: 300px;
+}
+#schedules-payment main form .form-creditcard .form-card .faces.flipped {
+  transform: rotateY(180deg);
+}
+#schedules-payment main form .form-creditcard .form-card .faces svg {
+  width: 300px;
+  backface-visibility: hidden;
+  position: absolute;
+}
+#schedules-payment main form .form-creditcard .form-card .faces svg.back {
+  transform: rotateY(180deg);
+}
+
+@media (min-width: 992px) {
+  #schedules-payment {
+    position: static;
+  }
+  #schedules-payment.keyboard-open {
+    margin-bottom: 0;
+    height: calc(100vh - 60px);
+  }
+  #schedules-payment.keyboard-open main form {
+    max-width: 900px;
+  }
+  #schedules-payment.keyboard-open footer {
+    position: fixed;
+    width: 100%;
+    margin-left: initial;
+  }
+  #schedules-payment > header {
+    height: 130px;
+    min-height: 130px;
+  }
+  #schedules-payment > header h1 {
+    display: block;
+  }
+  #schedules-payment main form {
+    max-width: 900px;
+    justify-content: space-between;
+  }
+  #schedules-payment main form .form-creditcard .form-card {
+    position: static;
+    display: flex;
+    justify-content: center;
+    padding-left: var(--space);
+  }
+  #schedules-payment main form .form-creditcard .form-card .faces {
+    width: 100%;
+  }
+  #schedules-payment main form .form-creditcard .form-card .faces svg {
+    width: 398px;
+    position: absolute;
+  }
+}
+#schedules-complete main {
+  flex-direction: column;
+  padding: var(--space);
+}
+#schedules-complete main header {
+  margin: 0;
+}
+#schedules-complete main p small {
+  display: block;
+}
+#schedules-complete main footer {
+  justify-content: center;
+}
+#schedules-complete main footer a {
+  min-width: 130px;
+  border: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: var(--black);
+  background-color: var(--green);
+  color: var(--white);
+  min-width: 200px;
+}
+#schedules-complete main footer a:hover {
+  background-color: var(--black-10);
+}
+#schedules-complete main footer a:active {
+  background-color: var(--black-75);
+}
+#schedules-complete main footer a:hover {
+  background-color: var(--green-hover);
+}
+#schedules-complete main footer a:active {
+  background-color: var(--green-active);
+}
+@media (min-width: 992px) {
+  #schedules-complete main footer {
+    justify-content: flex-start;
   }
 }
 

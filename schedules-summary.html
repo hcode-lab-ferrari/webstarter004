@@ -181,52 +181,80 @@
       <hr class="italy" />
     </header>
 
-    <section class="page blue" id="schedules-services">
+    <section class="page blue" id="schedules-summary">
       <header>
-        <h1>Escolha os Serviços</h1>
+        <h1>Resumo do Pedido<small>Confira os detalhes do pedido</small></h1>
       </header>
 
       <div class="with-aside">
         <main>
-          <div class="options">
-            <label>
-              <input type="checkbox" name="service" value="1" checked />
-              <div class="square">
-                <div></div>
-              </div>
-              <div class="content">
-                <div class="name">Revisão</div>
-                <div class="description">Veriﬁcação mínima necessária.</div>
-                <div class="price">R$100,00</div>
-              </div>
-            </label>
-            <label>
-              <input type="checkbox" name="service" value="1" checked />
-              <div class="square">
-                <div></div>
-              </div>
-              <div class="content">
-                <div class="name">Alinhamento</div>
-                <div class="description">Alinhamento e balanceamento.</div>
-                <div class="price">R$400,00</div>
-              </div>
-            </label>
-            <label>
-              <input type="checkbox" name="service" value="1" checked />
-              <div class="square">
-                <div></div>
-              </div>
-              <div class="content">
-                <div class="name">Filtros</div>
-                <div class="description">
-                  Troca de filtro de ar e combustível.
-                </div>
-                <div class="price">R$200,00</div>
-              </div>
-            </label>
-          </div>
+          <form action="schedules-complete.html">
+            <div class="field">
+              <input
+                type="text"
+                name="payment-form"
+                id="payment-form"
+                value="Cartão de Crédito"
+                readonly
+              />
+              <label for="payment-form">Forma de Pagamento</label>
+            </div>
 
-          <form action="schedules-payment.html">
+            <div class="field">
+              <input
+                type="text"
+                name="final-card"
+                id="final-card"
+                value="***0604"
+                readonly
+              />
+              <label for="final-card">Cartão Final</label>
+            </div>
+
+            <div class="field">
+              <input
+                type="text"
+                name="installments"
+                id="installments"
+                value="À VISTA"
+                readonly
+              />
+              <label for="installments">Parcelas</label>
+            </div>
+
+            <div class="field">
+              <input
+                type="text"
+                name="services"
+                id="services"
+                value="1"
+                readonly
+              />
+              <label for="services">Quantidade de Serviços</label>
+            </div>
+
+            <div class="field">
+              <input
+                type="text"
+                name="service-date"
+                id="service-date"
+                value="5 de novembro de 2021 à 20:40"
+                readonly
+              />
+              <label for="service-date">Data do Serviço</label>
+            </div>
+
+            <div class="field">
+              <input
+                type="text"
+                name="total"
+                id="total"
+                value="R$ 400"
+                readonly
+              />
+              <label for="total">Valor Total</label>
+            </div>
+
             <footer class="fixed">
               <a href="schedules-time-options.html">Voltar</a>
               <button type="submit">Continuar</button>
